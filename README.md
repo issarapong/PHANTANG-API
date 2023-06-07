@@ -1,7 +1,7 @@
 # PHANTANG API
 
 ## Install Package
-
+```
 pnpm init
 pnpm add express 
 pnpm add dotenv
@@ -12,4 +12,8 @@ pnpm add express-rate-limit
 pnpm add joi
 pnpm add bcryptjs
 pnpm add jsonwebtoken
+```
 
+Branch
+- Simple Register to db
+- 

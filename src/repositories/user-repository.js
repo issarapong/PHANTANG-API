@@ -1,4 +1,11 @@
-const { Op } = require('sequelize')
-const { User } = require('../models')
+const { Op } = require('sequelize');
+const { User } = require('../models');
 
-exports.createUser = user => User.create(user)
+exports.getUserByEmailOrMobile = emailOrMobile =>
+  User.findOne({
+    where: {
+      [Op.or]: [{ email: emailOrMobile }, { mobile: emailOrMobile }]
+    }
+  });
+
+exports.createUser = user => User.create(user);
