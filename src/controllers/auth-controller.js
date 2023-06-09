@@ -59,6 +59,12 @@ exports.login = async (req,res, next) => {
 } 
 
 
+
+exports.getme = (req, res, next) => {
+    res.status(200).json({ user: req.user });
+  };
+
+
 // exports.register คือ Module ที่ส่งให้ auth-route เรียกใช้เพื่อนำผลลัพธิ์ กลับไปให้ client ภายใน Module จะมีการประมวลผลต่างๆ ก่อนส่ง
 
 
