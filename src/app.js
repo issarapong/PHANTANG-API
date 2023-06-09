@@ -20,7 +20,7 @@ if(devenv === 'development') {
     app.use(morgan('combined'))
 }
 
-app.use(cors())
+app.use(cors())  // add cors for suuport frontend action
 
 app.use(express.json()) // แปลง String to json obj / ถ้าไม่ใช้ req.body จะ undefiend  ตัวยอย่างเรียกใช้ใน /src/controllers/auth-controller.js
 
