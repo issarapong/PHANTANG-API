@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express')
 const app = express();
 const morgan = require('morgan')
-
+const cors = require('cors')
 //IMPORT CustomModule From /routes
 
 const authRoute = require('./routes/auth-route')
@@ -20,6 +20,7 @@ if(devenv === 'development') {
     app.use(morgan('combined'))
 }
 
+app.use(cors())
 
 app.use(express.json()) // แปลง String to json obj / ถ้าไม่ใช้ req.body จะ undefiend  ตัวยอย่างเรียกใช้ใน /src/controllers/auth-controller.js
 
