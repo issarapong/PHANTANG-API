@@ -43,7 +43,12 @@ module.exports = (sequelize, DataTypes) => {
 
   });
     
-  
+  // กำหนดลักษะณะความสัมพันธิ์ กับตารางอื่น
+
+
+
+
+
 
  return User;
 };

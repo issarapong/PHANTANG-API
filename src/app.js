@@ -4,9 +4,13 @@ const express = require('express')
 const app = express();
 const morgan = require('morgan')
 const cors = require('cors')
-//IMPORT CustomModule From /routes
+//IMPORT CustomModule  
 
+//routes
 const authRoute = require('./routes/auth-route')
+
+//group
+const groupRoute = require('./routes/group-route')
 
 //IMPORT Custom Module From /middlewares
 const notFoudMiddlewares = require('./middlewares/not-found')
@@ -27,7 +31,7 @@ app.use(express.json()) // แปลง String to json obj / ถ้าไม่�
 
 // รับ request ที่เกี่ยวกับเรื่อง auth  login/register แล้วทำงานร่วมกับ /routes/auth-route.js
 app.use('/auth', authRoute)
-
+app.use('/group', groupRoute)
 
 
 // Error and Notfound Middlewares
