@@ -9,15 +9,15 @@ const cors = require('cors')
 //routes
 const authRoute = require('./routes/auth-route')
 //group
-const groupRoute = require('./routes/group-route')
+//const groupRoute = require('./routes/group-route')
 //Join
-const joinRoute = require('./routes/join-route')
+//const joinRoute = require('./routes/join-route')
 //Post
 const postRoute = require('./routes/post-route')
 //comment
 const commentRoute = require('./routes/comment-route')
 //role
-const roleRoute = require('./routes/role-route')
+//const roleRoute = require('./routes/usergrouprole-route')
 
 //IMPORT Custom Module From /middlewares
 const notFoudMiddlewares = require('./middlewares/not-found')
@@ -38,11 +38,11 @@ app.use(express.json()) // แปลง String to json obj / ถ้าไม่�
 
 // รับ request ที่เกี่ยวกับเรื่อง auth  login/register แล้วทำงานร่วมกับ /routes/auth-route.js
 app.use('/auth', authRoute)
-app.use('/group', groupRoute)
-app.use('/join', joinRoute)
+//app.use('/group', groupRoute)
+//app.use('/join', joinRoute)
 app.use('/post', postRoute)
 app.use('/comment', commentRoute)
-app.use('/role', roleRoute)
+//app.use('/role', roleRoute)
 
 // Error and Notfound Middlewares
 app.use(errorMiddlewares)

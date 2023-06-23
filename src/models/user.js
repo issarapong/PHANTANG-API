@@ -44,11 +44,27 @@ module.exports = (sequelize, DataTypes) => {
   });
     
   // กำหนดลักษะณะความสัมพันธิ์ กับตารางอื่น
+User.associate = models => {
+ User.hasMany(models.Post, {
+    foreignKey: {
+      name: 'userId',
+      allowNull: false
+    },
+    onDelete: 'CASCADE'
+ })
+
+ User.hasMany(models.Comment, {
+  foreignKey:{
+    name: 'userId',
+    allowNull: false
+  },
+  onDelete: 'CASCADE'
+ })
 
 
 
 
 
-
+}
  return User;
 };

@@ -21,7 +21,25 @@ module.exports = (sequelize, DataTypes) => {
     
   // กำหนดลักษะณะความสัมพันธิ์ กับตารางอื่น
 
+Usergroup.associate = models => { 
+  Usergroup.belongsTo(models.User, {
+    foreignKey: {
+      name: 'userId',
+      allowNull: false
+    },
+    onDelete: 'CASCADE'
+  })
 
+  Usergroup.belongsTo(models.Group, {
+    foreignKey: {
+      name: 'groupId',
+      allowNull: true
+    },
+    onDelete: 'CASCADE'
+
+  })
+
+}
 
 
 

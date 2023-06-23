@@ -21,11 +21,27 @@ module.exports = (sequelize, DataTypes) => {
   });
     
   // กำหนดลักษะณะความสัมพันธิ์ กับตารางอื่น
+Group.associate = models => {
+   Group.belongsTo(models.User, {
+    foreignKey: {
+      name: 'userId',
+      allowNull: true
+    },
+    onDelete: 'CASCADE'
+   })
+
+
+Group.hasmany(models.Post, {
+  foreignKey: {
+        name: 'groupId',
+        allowNull: false
+  },
+  onDelete: 'CASCADE'
+})
 
 
 
-
-
+}
 
  return Group;
 };

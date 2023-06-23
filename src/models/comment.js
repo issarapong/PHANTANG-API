@@ -2,17 +2,8 @@ const { sequelize } = require(".");
 
 module.exports = (sequelize, DataTypes) => {
   const Comment = sequelize.define("Comment", {
-    content: {
+    commentContent: {
       type: DataTypes.TEXT,
-      allowNull: false
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-
-    },
-    postId: {
-      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
@@ -21,11 +12,25 @@ module.exports = (sequelize, DataTypes) => {
   });
     
   // กำหนดลักษะณะความสัมพันธิ์ กับตารางอื่น
+Comment.associate = models => {
+  Comment.belongsTo(models.User, {
+    foreignKey: {
+      name: 'userId',
+      allowNull: false
+    },
+    onDelete: 'CASCADE'
+  })
+   Comment.belongsTo(models.Post, {
+    foreignKey: {
+      name: 'postId',
+      allowNull: true
+    },
+    onDelete: 'CASCADE'
+   })
 
 
 
-
-
+}
 
  return Comment;
 };

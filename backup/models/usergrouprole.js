@@ -9,11 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     groupId: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
-    roleId: {
-      type: DataTypes.INTEGER,
+    },    
+    roleLevel: {
+      type: DataTypes.ENUM('Administrator', 'Modulator', 'Member'),
+      defaultValue: 'Member',
       allowNull: false
-  }
+    }
 },{
     underscored: true
 
@@ -21,10 +22,24 @@ module.exports = (sequelize, DataTypes) => {
     
   // กำหนดลักษะณะความสัมพันธิ์ กับตารางอื่น
 
+Usergrouprole.associate = models => {
+  Usergrouprole.belongsTo(models.User, {
+    foreignKey: {
+      name: 'userId',
+      allowNull: false
+    },
+    onDelete: 'CASCADE'
+  })
 
+Usergrouprole.belongsTo(models.Group, {
+    foreignKey: {
+      name: 'GroupId',
+      allowNull: true
+    },
+    onDelete: 'CASCADE'
+})
 
-
-
+}
 
  return Usergrouprole;
 };
